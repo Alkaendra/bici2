@@ -1,0 +1,76 @@
+<div id="en-content">
+  <div class="container">
+    <div class="row">
+
+      <!-- Left Content 4 Cols -->
+      <div class="col-sm-4 col-md-4">
+        <div class="section-title text-left"> <!-- Left Section Title -->
+          <h2>¿En que podemos <br>Ayudarte?</h2>
+          <hr>
+          <p>Quisque porttitor sem libero auctor lorem fringilla sit amehasellus gravida nisi elitam egestda. Sedquis viverra enim.</p>
+          <a class="read-more" href="#">Ver Nuestros Trabajos  <span class="fa fa-chevron-circle-right"></span></a>
+        </div>
+      </div>
+      <div class="col-sm-8 col-md-8">
+
+        <%= simple_form_for @contact, :html => {:class => 'form', :id => "contact-form", :name => "sentMessage" } do |f| %>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group"> <!-- Your name input -->
+               <%= f.input :name, label: false, placeholder: 'Nombre', :required => true, error: 'Nombre es obligatorio, por favor escribe uno' %>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group"> <!-- Your name input -->
+              <%= f.input :email, label: false, placeholder: 'Email', :required => true, error: 'Email es obligatorio, por favor escribe uno' %>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+        </div>
+        <%= f.input :message, :as => :text, label: false, placeholder: 'Por favor redacte su consulta', :required => true, error: 'Mensaje es obligatorio, por favor escribe uno', :input_html => { class: 'test', :cols => 5, :rows => 6 } %>
+        <p class="help-block text-danger"></p>
+        <div class= "hidden">
+          <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+        </div>
+
+        <button type="submit" class="btn btn-send en-btn dark">Enviar Mensaje</button>
+
+
+      <% end %>
+      <div class="clearfix"></div>
+      <div class="spacer"></div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="contact-details">
+            <h4>Información de Contacto</h4>
+            <hr>
+            <ul class="list-unstyled list-block">
+              <li><strong>Horario Oficina: </strong> <br>Lun-Vie 8am - 10pm</li>
+              <li><strong>Dirección: </strong> <br>Santianes del Agua, s.n. <br>33569 Ribadesella. Asturias</li>
+              <li><strong>Email: </strong> <br>info@metalsella.com</li>
+              <li><strong>Tel: </strong> <br>+34 985 860 555</li>
+              <li><strong>Fax: </strong> <br>+34 985 860 555</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-8">
+          <div class="contact-details">
+            <h4>Google Map Localización</h4>
+            <hr>
+            <div class="map">
+              <!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.294898230479!2d-74.01236055!3d40.71152420000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a19881b83fb%3A0x979b0a4fe0492ce6!2sWorld+Trade+Center%2C+New+York%2C+NY%2C+USA!5e0!3m2!1sen!2sph!4v1424375590572"></iframe>-->
+              <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?hl=en&q=Santianes del Agua, s.n. 33569 Ribadesella. Asturias&ie=UTF8&t=roadmap&z=13&iwloc=B&output=embed"><div><small><a href="http://www.embedgooglemaps.com">embed google map</a></small></div><div><small><a href="http://embedgooglemaps.com">by embedgooglemaps.com</a></small></div></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+</div>

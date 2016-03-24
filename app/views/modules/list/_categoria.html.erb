@@ -1,0 +1,16 @@
+
+<div class="col-sm-6 col-md-4 col-lg-4 <%= categoria.slug %>">
+  <div class="item"><!-- Portfolio Item #1 -->
+    <div class="hover-bg">
+      <div class="hover-text off">
+        <h4><%= categoria.title %></h4>
+        <br>
+        <p><%= truncate(categoria.description, length: 150) %></p>
+        <%= link_to categories_path(:category => categoria.id, :parent => true), :class => "read-more" do %>
+          Ver más <span class="fa fa-chevron-circle-right"></span>
+        <% end %>
+      </div>
+      <%= image_tag categoria.image.url(:normal), :class => 'img-responsive' %>
+    </div>
+  </div>
+</div>

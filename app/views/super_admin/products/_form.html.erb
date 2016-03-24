@@ -1,0 +1,41 @@
+<% if params[:subcategory_id].blank? %>
+	<%= f.input :subcategory_id, collection: Subcategory.all.order("title DESC") %>
+<% else %>
+	<%= f.input :subcategory_id, selected: params[:subcategory_id], collection: @subcategory %>
+<% end %>
+<div class="row">
+	<div class="col-sm-12">
+
+		<%= f.input :title %>
+		<%= f.input :description, as: :textile_editor %>
+		<hr />
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-6">
+		<h3>Imagen principal</h3>
+		<% unless @product.image.blank? %>
+			<div class="image_preview">
+				<%= image_tag(@product.image.url(:thumb)) %>
+			</div>
+		<% end %>
+		<%= f.input :image %>
+	</div>
+</div>
+
+<hr />
+
+<div class="row">
+	<div class="col-sm-6">
+		<h3>Elemento destacado</h3>
+			<%= f.input_field :featured, as: :boolean, checked_value: true, unchecked_value: false %>
+	</div>
+</div>
+<hr />
+<div class="form-actions">
+  <% label = @product.new_record? ? "Crear" : "Actualizar" -%>
+  <%= f.submit label, :class => 'btn btn-primary' %>
+  &nbsp;
+  <%= link_to "cancelar", super_admin_products_path, :class => 'btn btn-default' %>
+</div>

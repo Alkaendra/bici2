@@ -1,0 +1,58 @@
+
+
+    <!-- Page Header
+    ========================-->
+    <% if @categor.length > 1 %>
+        <div id="en-header">
+            <div class="container">
+                <h2 class="pull-left">Maquinaria</h2>
+                <ol class="breadcrumb pull-right">
+                  <li><%= link_to "Inicio", root_path %></li>
+                  <li class="">Maquinaria</li>
+                </ol>
+            </div>
+        </div>
+    <% else %>
+        <div id="en-header">
+            <div class="container">
+                <% @categor.each do |c| %>
+                    <h2 class="pull-left"><%= c.title %></h2>
+                    <ol class="breadcrumb pull-right">
+                    <li><%= link_to "Inicio", root_path %></li>
+                    <li><%= link_to "Maquinaria", categories_path %></li>                  
+                    <li class="active"><%= c.title %></li>
+                <% end %>
+                </ol>
+            </div>
+        </div>
+    <% end %>
+
+    <!-- Page Content
+    ==================================-->
+    <div id="en-content">
+
+        <div class="container"> <!-- Container -->
+
+            <ul class="list-inline cat">
+                <li><%= link_to "Todos", categories_path, :'data-filter' => "*" %></li>
+                <% @categor.each do |c| %>
+                    <li><%= link_to c.title, categories_path(:category => c.id), :'data-filter' => "."+c.slug %></li>
+                <% end %>
+            </ul>
+
+            <div class="clearfix"></div>
+            <div class="smallspacer"></div>
+
+        
+            <div class="row">
+                <div id="itemsWork" class="col3">
+                    <% @categor.each do |categoria| %>
+                        <%= render partial: "/modules/list/categoria", object: categoria %>
+                    <% end %>               
+                </div> <!-- Isotope -->
+            </div> <!-- End Row -->
+        </div> <!-- End Container-Fluid -->
+    </div> <!-- End Services Section -->
+
+
+   

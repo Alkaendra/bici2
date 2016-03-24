@@ -1,0 +1,18 @@
+
+
+<%= render partial: "/products/page_header" %>
+
+<!-- Page Content
+==================================-->
+<div id="en-content">
+
+    <div class="container"> <!-- Container -->
+        <div class="clearfix"></div>
+        <div class="smallspacer"></div>
+        <div class="row">
+          <% @products.each do |product| %>
+             <%= render partial: "/modules/list/product", object: product %>
+          <% end %>
+        </div>
+    </div>
+</div>
