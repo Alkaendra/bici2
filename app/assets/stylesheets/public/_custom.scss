@@ -1,3 +1,33 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.btn-default {
+    background: #1e120d;
+    color: white;
+}
+.overlay-container {
+    height: 250px;
+}
+.margin-down {
+    margin-bottom: 50px;
+}
+a.btn-sm-link:hover {
+    color: black;
+}
+.producto-precio {
+    color: #09afdf;
+    margin-top: 10px;
+    text-align: right;
+}
+.icon-plus-1::before {
+    margin-top: 22px;
+}
+/* contacto */
+
+.banner.contactar {
+    background-image: image-url("page-contact-banner.jpg");
+    background-position: 50% 30%;
+}
 
 /* barra de navegación */
 
@@ -22,7 +52,7 @@
 
 #logo {
 	img {
-		height: 140px !important;
+		height: 100px !important;
 		position: absolute;
         z-index:30;
 	}

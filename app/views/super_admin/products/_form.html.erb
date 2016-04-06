@@ -1,8 +1,6 @@
-<% if params[:subcategory_id].blank? %>
-	<%= f.input :subcategory_id, collection: Subcategory.all.order("title DESC") %>
-<% else %>
-	<%= f.input :subcategory_id, selected: params[:subcategory_id], collection: @subcategory %>
-<% end %>
+
+<%= f.input :category_id, collection: Category.all.order("title DESC") %>
+
 <div class="row">
 	<div class="col-sm-12">
 
@@ -30,6 +28,10 @@
 	<div class="col-sm-6">
 		<h3>Elemento destacado</h3>
 			<%= f.input_field :featured, as: :boolean, checked_value: true, unchecked_value: false %>
+	</div>
+	<div class="col-sm-6">
+		<h3>Precio</h3>
+		<%= f.input :precio %>
 	</div>
 </div>
 <hr />

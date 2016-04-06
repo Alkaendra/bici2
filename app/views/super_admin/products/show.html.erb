@@ -17,8 +17,8 @@
 </p>
 
 <p>
-  <strong>Subcategoria</strong>
-  <%= @product.subcategory.title %>
+  <strong>Categoría:</strong>
+  <%= @product.category.id %> ( <%= @product.category.title %> )
 </p>
 
 <p>
@@ -28,6 +28,10 @@
 <p>
   <strong>Descripcion:</strong>
   <%= @product.description %>
+</p>
+<p>
+  <strong>Precio:</strong>
+  <%= @product.precio %>
 </p>
 
 <p>

@@ -3,7 +3,8 @@ add_breadcrumb "productos y servicios", :products_path
 
 	def index
 
-    @categories = Category.all
+    @categorias = Category.where(parent_id: nil).order("updated_at ASC")
+    @c = Category.all
     @products = Product.joins(:category)
     if params[:category]
       @products = Product.where(:category => params[:category])
@@ -13,7 +14,8 @@ add_breadcrumb "productos y servicios", :products_path
 	end
 
 	def show
-		@product = Product.find(params[:id])
+    @categorias = Category.where(parent_id: nil).order("updated_at ASC")
+		@producto = Product.friendly.find(params[:id])
 
 		respond_to do |format|
 	      format.html # show.html.erb
@@ -25,6 +27,6 @@ add_breadcrumb "productos y servicios", :products_path
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :image, :category_id)
+    params.require(:product).permit(:id, :title, :description, :image, :category_id)
   end
 end

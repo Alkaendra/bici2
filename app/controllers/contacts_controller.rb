@@ -1,6 +1,7 @@
 class ContactsController < ApplicationController
   def new
     @contact = Contact.new
+    @categorias = Category.where(parent_id: nil).order("updated_at ASC")
   end
 
   def create

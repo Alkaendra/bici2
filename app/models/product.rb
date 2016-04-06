@@ -1,8 +1,8 @@
 class Product < ActiveRecord::Base
-  validates :title, :description, :subcategory_id, presence: true
+  validates :title, :description, :category_id, presence: true
 
   has_many :images
-  belongs_to :subcategory
+  belongs_to :category
 
   accepts_nested_attributes_for :images, :reject_if => :all_blank, :allow_destroy => true
 

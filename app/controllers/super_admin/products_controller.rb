@@ -5,7 +5,7 @@ class SuperAdmin::ProductsController < SuperAdminController
     # looks like that join is just a sql query! easy! Too bad the relationships don't get diagrammed in activerecord. **There is a gem that generates a read-only erd.
     # @products = Product.joins('LEFT JOIN subcategories ON products.subcategory_id = subcategories.id')
     # HERE is the rails way to do the join. Could it be any easier?
-    @products = Product.joins(:subcategory)
+    @products = Product.joins(:category)
     #@products = Product.all
 
     respond_to do |format|
@@ -24,7 +24,6 @@ class SuperAdmin::ProductsController < SuperAdminController
 
   def create
     @product = Product.new(product_params)
-    #@subcategory = Subcategory.find(params[:product][:subcategory_id])
     respond_to do |format|
       if @product.save
         format.html { redirect_to ([:super_admin, @product]), notice: 'Producto creado correctamente.' }
@@ -75,7 +74,8 @@ class SuperAdmin::ProductsController < SuperAdminController
       :meta_description,
       :featured,
       :image,
-      :subcategory_id,
+      :category_id,
+      :precio,
       :images_attributes => [:id, :photo, :headline, :caption, :done, :_destroy]
     )
   end
