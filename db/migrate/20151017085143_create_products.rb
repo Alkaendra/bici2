@@ -12,7 +12,7 @@ class CreateProducts < ActiveRecord::Migration
       t.timestamps null: false
     end
     add_index :products, :slug, unique: true
-    add_index "products", ["subcategory_id"], name: "index_products_on_subcategory_id", using: :btree
+    add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
     #add_foreign_key :products, :categories
   end
 end

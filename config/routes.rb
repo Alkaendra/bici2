@@ -3,10 +3,13 @@ Bicicletea::Application.routes.draw do
 
   
   
+  get 'paginas_estaticas/contacto'
+
+  get 'paginas_estaticas/sobreNosotros'
+
   root 'welcome#index'
   resources :products, only: [:index, :show]
   resources :categories, only: [:index, :show]
-  resources :subcategories, only: [:index, :show]
   resources :projects, only: [:index, :show]
 
   #resources :categories, only: [:index, :show] do

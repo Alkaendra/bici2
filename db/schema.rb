@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160314085411) do
+ActiveRecord::Schema.define(version: 20160404180945) do
 
   create_table "admins", force: true do |t|
     t.string   "type"
@@ -108,8 +108,9 @@ ActiveRecord::Schema.define(version: 20160314085411) do
     t.string   "meta_description"
     t.boolean  "featured"
     t.integer  "subcategory_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.float    "precio",             limit: 24
   end
 
   add_index "products", ["slug"], name: "index_products_on_slug", unique: true, using: :btree
